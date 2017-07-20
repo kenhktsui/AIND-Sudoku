@@ -29,7 +29,7 @@ def naked_twins(values):
 
 def cross(A, B):
     "Cross product of elements in A and elements in B."
-    pass
+    return [s+t for s in A for t in B]
 
 def grid_values(grid):
     """
@@ -41,7 +41,13 @@ def grid_values(grid):
             Keys: The boxes, e.g., 'A1'
             Values: The value in each box, e.g., '8'. If the box has no value, then the value will be '123456789'.
     """
-    pass
+    string = []
+    for c in grid:
+    	if c == ".":
+    		string.append('123456789')
+    	else:
+    		string.append(c)
+    return dict(zip(boxes,string))
 
 def display(values):
     """
@@ -52,10 +58,29 @@ def display(values):
     pass
 
 def eliminate(values):
-    pass
+    solvedkeys = []
+    for c in values.keys():
+        if len(values[c]) == 1:
+            solvedkeys.append(c) 
+    
+    for c in solvedkeys:
+        figure = values[c] # Call the solved value
+        for peer in peers[c]: # Loop through each correspoding peer and remove that with ""
+            values[peer] = values[peer].replace(figure,"")
+            
+    return values
 
 def only_choice(values):
-    pass
+    for unit in unitlist:
+        for i in "123456789":
+            matchedcell = []
+            for u in unit:
+                if i in values[u]:
+                    matchedcell.append(u)
+            if len(matchedcell)==1:
+                values[matchedcell[0]]= i
+    return values
+
 
 def reduce_puzzle(values):
     pass
