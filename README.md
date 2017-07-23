@@ -3,8 +3,8 @@
 
 # Question 1 (Naked Twins)
 Q: How do we use constraint propagation to solve the naked twins problem?  
-A: Step1: mapping key 1 over its corresponding units (row unit/ column unit/ square unit/ squart unit) to identify twins
-   Step2: if the count of successful mapping is greater than or equal to 2, replace 2 figures with "" in all its corresponding      units and not to remove the twins themselves
+A: Step1: mapping key 1 over its corresponding units (row unit/ column unit/ square unit/ squart unit) to identify twins.
+   Step2: if the count of successful mapping is greater than or equal to 2, replace 2 figures with "" in all its corresponding      units and not to remove the twins themselves.
    
 
 # Question 2 (Diagonal Sudoku)
